@@ -120,7 +120,7 @@ export async function createJob(req, res, next) {
       perks: parseArray(req.body.perks),
       employerId: req.user._id,
       location: pointFromBody(req.body),
-      status: req.user.role === "admin" || req.user.isVerified || req.user.isVerifiedEmployer ? "active" : "pending"
+      status: "active"
     };
     if (req.file) jobData.companyLogo = await uploadToCloudinary(req.file.buffer, "localhire/company-logos", "image");
 
